@@ -2,11 +2,10 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-let db = require('./models')('bullet', {auto_compaction: true});
-let Collection = require('./models/collection')(db);
-let Bullet = require('./models/bullet')(db);
-const remoteDBAddress = 'http://50.112.218.37:5984/';
-const Moment = require('moment');
+// let db = require('./models')('bullet', {auto_compaction: true});
+// let Collection = require('./models/collection')(db);
+// let Bullet = require('./models/bullet')(db);
+const remoteDBAddress = '';
 
 const typeDict = {
     "Task": "fa-circle-o",

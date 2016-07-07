@@ -2,13 +2,13 @@
 bulletApp.directive('monthCal', function($log) {
     return {
         restrict: 'E',
-        templateUrl: 'scripts/month-cal/month.cal.template.html',
+        templateUrl: 'js/month-cal/month.cal.template.html',
         scope: {
             collection: '=',
             days: '=',
         },
         link: function(scope) {
-            scope.formattedTitle = 'Calendar'; //Moment(scope.collection.title).format('MMMM YYYY').toUpperCase();
+            scope.formattedTitle = 'Calendar'; //moment(scope.collection.title).format('MMMM YYYY').toUpperCase();
 
             generateBulletList()
 

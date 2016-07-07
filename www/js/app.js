@@ -6,7 +6,7 @@
 const bulletApp = angular.module('bulletApp', ['ui.router', 'ui.bootstrap', 'ngSanitize', 'ionic']);
 
 bulletApp.config(function ($urlRouterProvider) {
-        $urlRouterProvider.otherwise('/index');
+        $urlRouterProvider.when('', '/index');
     })
     .run(function ($window, $rootScope) {
         /* Connection Status Detection and Update */

@@ -1,7 +1,7 @@
 bulletApp.directive('searchBar', function(currentStates, $state) {
     return {
         restrict: 'E',
-        templateUrl: 'scripts/search/search.template.html',
+        templateUrl: 'js/search/search.template.html',
         link: function(scope) {
             scope.getBullets = function(search) {
                 return Bullet.fetchAll(search);

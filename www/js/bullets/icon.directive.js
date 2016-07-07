@@ -2,7 +2,7 @@
 bulletApp.directive('bulletIcon', function() {
     return {
         restrict: 'E',
-        templateUrl: 'scripts/bullets/icon.template.html',
+        templateUrl: 'js/bullets/icon.template.html',
         scope: {
             bullet: '='
         },

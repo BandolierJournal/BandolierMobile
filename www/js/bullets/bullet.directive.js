@@ -1,7 +1,7 @@
 bulletApp.directive('bullet', function(DateFactory, $timeout, $rootScope) {
     return {
         restrict: 'E',
-        templateUrl: 'scripts/bullets/bullet.template.html',
+        templateUrl: 'js/bullets/bullet.template.html',
         scope: {
             bullet: '=',
             removeFn: '&',
@@ -24,8 +24,8 @@ bulletApp.directive('bullet', function(DateFactory, $timeout, $rootScope) {
                 scope.showScheduler = !scope.showScheduler;
             }
 
-            scope.templateUrl = 'scripts/bullets/type.template.html';
-            scope.datepickerUrl = 'scripts/bullets/datepicker.template.html';
+            scope.templateUrl = 'js/bullets/type.template.html';
+            scope.datepickerUrl = 'js/bullets/datepicker.template.html';
 
             scope.selectType = function(b, type) {
                 delete scope.bullet.status;

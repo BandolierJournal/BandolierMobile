@@ -1,7 +1,7 @@
 bulletApp.factory('DateFactory', function () {
-    let today = Moment().startOf('day').toISOString(); // TODO: make this a function (so today is always up to date)
-    let yesterday = Moment(today).subtract(1, 'days').toISOString();
-    let thisMonth = Moment().startOf('month').toISOString();
+    let today = moment().startOf('day').toISOString(); // TODO: make this a function (so today is always up to date)
+    let yesterday = moment(today).subtract(1, 'days').toISOString();
+    let thisMonth = moment().startOf('month').toISOString();
 
     function splitCollections(collections) {
         if (!collections.length) return [
@@ -23,20 +23,20 @@ bulletApp.factory('DateFactory', function () {
 
     function roundDate(date, type) {
         type = type || 'day'; // or month
-        return Moment(date).startOf(type).toISOString();
+        return moment(date).startOf(type).toISOString();
     }
 
     function display(offset, type) { //offset from today
         let display = [];
         let current = (type === 'day') ? today : thisMonth;
         for (let i = 1; i > -5; i--) {
-            display.push(Moment(current).subtract(i - offset, type + 's').toISOString());
+            display.push(moment(current).subtract(i - offset, type + 's').toISOString());
         }
         if (type === 'month') type = 'future';
         return display.map((e, index) => new Collection({
             title: e,
             type: type,
-            id: Moment().add(index, 'milliseconds').toISOString()
+            id: moment().add(index, 'milliseconds').toISOString()
         }));
     }
 
@@ -47,7 +47,7 @@ bulletApp.factory('DateFactory', function () {
         let dayArray = [];
         while (day.getMonth() == month.getMonth()) {
             dayArray.push(day.toISOString());
-            day = Moment(day).add(1, 'days').toISOString();
+            day = moment(day).add(1, 'days').toISOString();
             day = new Date(day);
         }
         return dayArray;
@@ -56,14 +56,14 @@ bulletApp.factory('DateFactory', function () {
     function getChoices(input) {
         let [month, day, year] = input.split(' ');
         let choices = [];
-        if (!day) choices = Moment.months()
+        if (!day) choices = moment.months()
         else if (!year) {
             for (let y of nextNYears(10)) {
                 choices.push(`${month} ${y}`);
             }
             choices = [
-                ...monthCal(Moment().month(month).startOf('month'))
-                .map(d => `${month} ${Moment(d).date()}`),
+                ...monthCal(moment().month(month).startOf('month'))
+                .map(d => `${month} ${moment(d).date()}`),
                 ...choices
             ];
         } else {
@@ -76,7 +76,7 @@ bulletApp.factory('DateFactory', function () {
 
     function convertDate(dateInput) {
         let [month, day, year] = dateInput.split(' ');
-        let date = Moment().month(month);
+        let date = moment().month(month);
         let type = 'day';
 
         if(!year) {
@@ -87,24 +87,24 @@ bulletApp.factory('DateFactory', function () {
     }
 
     function getWeekday(date) {
-        let weekday = Moment(date).isoWeekday();
-        weekday = Moment().isoWeekday(weekday).format('dddd')
+        let weekday = moment(date).isoWeekday();
+        weekday = moment().isoWeekday(weekday).format('dddd')
         return weekday;
     }
 
     function lastMonth(currentMonth) {
         currentMonth = currentMonth || thisMonth
-        return Moment(currentMonth).subtract(1, 'month').toISOString()
+        return moment(currentMonth).subtract(1, 'month').toISOString()
     }
 
     function nextMonth(currentMonth) {
         currentMonth = currentMonth || thisMonth
-        return Moment(currentMonth).add(1, 'month').toISOString()
+        return moment(currentMonth).add(1, 'month').toISOString()
     }
 
     function* nextNYears(n) {
         let i = 0;
-        const thisYear = Moment(thisMonth).year();
+        const thisYear = moment(thisMonth).year();
         while (i < n) {
             yield thisYear + i;
             i++;

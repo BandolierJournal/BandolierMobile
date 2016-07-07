@@ -2,7 +2,7 @@ bulletApp.config(function ($stateProvider) {
 
   $stateProvider.state('index', {
     url: '/index',
-    templateUrl: 'scripts/index/index.template.html',
+    templateUrl: 'js/index/index.template.html',
     controller: 'IndexCtrl',
     resolve: {
         collections: function() {

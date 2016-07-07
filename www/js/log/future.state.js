@@ -2,7 +2,7 @@ bulletApp.config(function($stateProvider) {
 
     $stateProvider.state('future', {
         url: '/future/:index',
-        templateUrl: 'scripts/log/log.template.html',
+        templateUrl: 'js/log/log.template.html',
         controller: 'LogCtrl',
         resolve: {
             collections: function(DateFactory, $log) {

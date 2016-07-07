@@ -3,7 +3,7 @@
 bulletApp.directive('collection', function($log, $rootScope, currentStates, DateFactory){
     return {
         restrict: 'E',
-        templateUrl: 'scripts/collections/collection.template.html',
+        templateUrl: 'js/collections/collection.template.html',
         scope: {
             collection: '=',
             noAdd: '=',
@@ -18,16 +18,16 @@ bulletApp.directive('collection', function($log, $rootScope, currentStates, Date
             function formatTitle(collection) {
                 switch(collection.type) {
                     case 'month':
-                        return 'Log'; //Moment(collection.title).format('MMMM')+' Log';
+                        return 'Log'; //moment(collection.title).format('MMMM')+' Log';
                         break;
                     case 'future':
-                        return Moment(collection.title).format('MMM YYYY').toUpperCase();
+                        return moment(collection.title).format('MMM YYYY').toUpperCase();
                         break;
                     case 'day':
-                        return DateFactory.getWeekday(collection.title)+', '+Moment(collection.title).format('MMMM D');
+                        return DateFactory.getWeekday(collection.title)+', '+moment(collection.title).format('MMMM D');
                         break;
                     case 'month-cal':
-                        return Moment(collection.title).format('MMMM')+' Calendar';
+                        return moment(collection.title).format('MMMM')+' Calendar';
                         break;
                     default:
                         return collection.title;

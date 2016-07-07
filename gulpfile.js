@@ -6,22 +6,13 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
-
-// All used modules.
-var gulp = require('gulp');
 var childProcess = require('child_process');
-var electron = require('electron-prebuilt');
 var jetpack = require('fs-jetpack');
 var usemin = require('gulp-usemin');
-
 var babel = require('gulp-babel');
 var runSeq = require('run-sequence');
 var plumber = require('gulp-plumber');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
-var minifyCSS = require('gulp-minify-css');
 // var ngAnnotate = require('gulp-ng-annotate');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
@@ -71,7 +62,7 @@ gulp.task('copy', ['clean'], function() {
 
 gulp.task('lintJS', function() {
 
-    return gulp.src(['./app/scripts/**.js', './app/**.js'])
+    return gulp.src(['./www/js/**/*.js', './www/js/*.js'])
         .pipe(plumber({
             errorHandler: notify.onError('Linting FAILED! Check your gulp process.')
         }))
@@ -81,8 +72,8 @@ gulp.task('lintJS', function() {
 
 });
 
-gulp.task('buildJS', ['lintJS'], function() {
-    return gulp.src(['./www/js/**/*.js'])
+gulp.task('buildJS', function() {
+    return gulp.src(['./www/js/*/*.js', './www/js/renderer.js'])
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(concat('main.js'))
@@ -141,6 +132,9 @@ gulp.task('build', function() {
     }
 });
 
+var paths = {
+  sass: ['./scss/**/*.scss']
+};
 gulp.task('default', function() {
 
     gulp.start('build');
@@ -151,8 +145,8 @@ gulp.task('default', function() {
     });
 
     // // Run when anything inside of browser/scss changes.
-    gulp.watch('scss/**', function() {
-        runSeq('buildCSS');
+    gulp.watch('./scss/ionic.app.scss', function() {
+        runSeq('sass');
     });
 
 
@@ -166,14 +160,6 @@ gulp.task('default', function() {
 
     livereload.listen();
 });
-
-
-
-var paths = {
-  sass: ['./scss/**/*.scss']
-};
-
-gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')

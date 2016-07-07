@@ -1,7 +1,7 @@
 bulletApp.directive('addCollection', function($state, $filter) {
     return {
         restrict: 'E',
-        templateUrl: 'scripts/add-collection/add-collection-template.html',
+        templateUrl: 'js/add-collection/add-collection-template.html',
         scope: {
             collectionType: '@'
         },
@@ -18,7 +18,7 @@ bulletApp.directive('addCollection', function($state, $filter) {
                     })
             }
 
-            scope.templateUrl = 'scripts/add-collection/collection-form.html';
+            scope.templateUrl = 'js/add-collection/collection-form.html';
         }
     }
 })
