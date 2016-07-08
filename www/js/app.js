@@ -5,8 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 const bulletApp = angular.module('bulletApp', ['ui.router', 'ui.bootstrap', 'ngSanitize', 'ionic']);
 
-bulletApp.config(function ($urlRouterProvider) {
+bulletApp.config(function ($urlRouterProvider, $ionicConfigProvider) {
         $urlRouterProvider.when('', '/index');
+        $ionicConfigProvider.tabs.position('bottom');
     })
     .run(function ($window, $rootScope) {
         /* Connection Status Detection and Update */

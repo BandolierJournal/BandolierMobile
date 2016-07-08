@@ -75,7 +75,7 @@ var bulletDefinition = function(){
         }
 
         migrate() {
-            const nextMonth = Moment(this.date).add(1, 'month').startOf('month').toISOString();
+            const nextMonth = moment(this.date).add(1, 'month').startOf('month').toISOString();
             return this.moveTo(nextMonth, 'month')
                 .then(res => {
                     this.status = 'migrated';

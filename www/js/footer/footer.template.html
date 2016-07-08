@@ -1,14 +1,20 @@
-<navbar class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container">
-    <ul class="menu pagination">
-      <li class="text-muted"><a class="navbar-link" ui-sref="index">index</a></li>
-      <li class="text-muted"><a class="navbar-link" ng-click="lastFuture()">future log</a></li>
-      <li class="text-muted"><a class="navbar-link" ng-click="lastMonth()">monthly tracker</a></li>
-      <li class="text-muted"><a class="navbar-link" ng-click="lastDaily()">daily log</a></li>
-      <li class="text-muted"><a class="navbar-link" ng-if="currentStates.genericTitle" ng-click="lastGeneric()">{{currentStates.genericTitle}}</a></li>
-    </ul>
+<!-- <navbar class="navbar navbar-default bar bar-footer"> -->
+  <!-- <div class="container"> -->
+    <!-- <div class="button-bar">
+      <a class="btn btn-default" ui-sref="index">index</a>
+      <a class="btn btn-default" ng-click="lastFuture()">future log</a>
+      <a class="btn btn-default" ng-click="lastMonth()">monthly tracker</a>
+      <a class="btn btn-default" ng-click="lastDaily()">daily log</a>
+      <a class="btn btn-default" ng-if="currentStates.genericTitle" ng-click="lastGeneric()">{{currentStates.genericTitle}}</a>
+    </div> -->
+    <ion-footer-bar>
+    <div class="button-bar">
+      <button class="button button-outline button-stable" ui-sref="index">index</button>
+      <button class="button button-outline button-stable">add collection</button>
+    </div>
+  </ion-footer-bar>
 
-    <ul class="menu pagination navbar-right">
+    <!-- <ul class="menu pagination navbar-right">
         <li refresh id="refresh" class="text-muted"><a class="navbar-link" ng-class="{offline: !online || !user}" ng-click="login()"><i class="fa fa-fw fa-refresh" ng-class="{'fa-spin': user && sync}"></i></a></li>
     </ul>
 
@@ -17,9 +23,9 @@
     </div>
     <div class="navbar-form navbar-right form-inline">
       <search-bar></search-bar>
-    </div>
+    </div> -->
 
-  </div>
+  <!-- </div> -->
   <!-- TODO: The following sections should be moved into either menus or modals -->
   <!-- <div class="container">
             <p class="text-muted pull-left">
@@ -61,4 +67,4 @@
                 delete: ⌘+del
             </p>
         </div> -->
-</navbar>
+<!-- </navbar> -->

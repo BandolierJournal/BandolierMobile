@@ -1,19 +1,21 @@
-<div class="container">
-    <div class="row">
-        <h1 class="page-header">{{month | date: 'MMMM yyyy' | uppercase}}
-            <div class="pull-right">
-                <button class="btn btn-sm" ng-click="lastMonth()"><i class="glyphicon glyphicon-arrow-left"></i></button>
-                <button class="btn btn-sm" ng-click="nextMonth()"><i class="glyphicon glyphicon-arrow-right"></i></button>
-            </div>
-            </h1>
-        <div class="collectionContainer">
-            <div class="collectionColumn">
+<ion-view title="{{month | date: 'MMMM yyyy' | uppercase}}">
+  <ion-content class="has-header">
+    <div class="padding">
+      <div class="swipe" <div class="container" on-swipe-left="nextMonth()" on-swipe-right="lastMonth()">
+        <div class="container">
+          <div class="row">
+            <div class="collectionContainer">
+              <div class="collectionColumn">
                 <month-cal collection="cal" days="daysInMonth"></month-cal>
-            </div>
-            <div class="collectionColumn">
+              </div>
+              <div class="collectionColumn">
                 <collection collection="future" no-add="true" month-title="log.title"></collection>
                 <collection collection="log" no-title="true"></collection>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </ion-content>
+</ion-view>

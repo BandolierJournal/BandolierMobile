@@ -5,7 +5,7 @@
 // let db = require('./models')('bullet', {auto_compaction: true});
 // let Collection = require('./models/collection')(db);
 // let Bullet = require('./models/bullet')(db);
-const remoteDBAddress = '';
+const remoteDBAddress = '/db';
 
 const typeDict = {
     "Task": "fa-circle-o",

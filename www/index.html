@@ -38,15 +38,25 @@
       <script src='main.js'></script>
   </head>
   <body ng-app="bulletApp">
-
     <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-        <ui-view></ui-view>
-        <footer></footer>
-      </ion-content>
+      <ion-nav-bar>
+      </ion-nav-bar>
+      <ion-nav-view>
+        <ion-view>
+          <ion-nav-buttons side="right">
+            <button class="btn btn-sm" ng-click=""><i class="glyphicon glyphicon-arrow-left"></i></button>
+            <button class="btn btn-sm" ng-click=""><i class="glyphicon glyphicon-arrow-right"></i></button>
+          </ion-nav-buttons>
+        </ion-view>
+      </ion-nav-view>
+
+
+  <ui-view></ui-view>
+        <!-- <div class="padding">
+          <ui-view></ui-view>
+        </div>     -->
+
+      <footer></footer>
     </ion-pane>
   </body>
 </html>

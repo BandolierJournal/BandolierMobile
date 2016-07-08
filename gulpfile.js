@@ -141,7 +141,7 @@ gulp.task('default', function() {
 
     // Run when anything inside of app/scripts changes.
     gulp.watch(['www/js/*.js', 'www/js/**/*.js'], function() {
-        runSeq('lintJS', 'buildJS', 'reload')
+        runSeq('buildJS', 'reload')
     });
 
     // // Run when anything inside of browser/scss changes.

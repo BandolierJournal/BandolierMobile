@@ -3,13 +3,13 @@ bulletApp.filter('displayType', function () {
     var output;
     switch(input) {
       case 'day':
-        output = 'Day';
+        output = 'Daily Log';
         break;
       case 'month':
-        output = 'Month';
+        output = 'Monthly Tracker';
         break;
       case 'month-cal':
-        output = 'Monthly Calendar';
+        output = 'Monthly Tracker ';
         break;
       case 'future':
         output = 'Future Log';

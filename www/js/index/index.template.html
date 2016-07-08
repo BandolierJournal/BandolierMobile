@@ -1,12 +1,15 @@
+<ion-view title="index">
+<ion-content class="has-header">
+  <div class="padding">
 <div class="container">
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <h1 class="page-header" id="indexTitle">INDEX</h1>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- <h1 class="page-header" id="indexTitle">INDEX</h1> -->
             <div ui-sref="future">
                 <h4>Future Log</h4>
             </div>
             <div ng-repeat="collection in collections track by $index" ng-mouseenter="delete = !delete">
-                <h4 ui-sref="{{collection.type}}({id: collection.id})"">{{collection.title}}</h4>
+                <h4 ui-sref="{{collection.type}}({id: collection.id})">{{collection.title}}</h4>
                 <i ng-show="delete" ng-click="deleteCollection(collection)"><i class="glyphicon glyphicon-trash"></i></i>
             </div>
             <div ng-repeat="(key, value) in months" ui-sref='month({monthString: key})'>
@@ -18,3 +21,6 @@
         </div>
     </div>
 </div>
+</div>
+</ion-content>
+</ion-view>

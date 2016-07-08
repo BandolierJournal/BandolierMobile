@@ -1,4 +1,8 @@
 {
   "name": "bandolier",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [{
+    "path": "/db",
+    "proxyUrl": "http://50.112.218.37:5984/"
+  }]
 }
